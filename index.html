@@ -57,16 +57,29 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
+     <script>
+    const video = document.getElementById("miVideo");
+    const musica = document.getElementById("miMusica");
 
-      document.addEventListener("click", function(){
-        const audio = document.getElementById("miaudio");
-        if (audio.paused) {
-          audio.play();
-        }
-      });
+    // Cuando el usuario hace clic en el video:
+    video.addEventListener("click", () => {
+      // Si el video está en pausa, lo reproducimos junto con la música
+      if (video.paused) {
+        video.play();
+        musica.play();
+      } else {
+        // Si el video ya está reproduciéndose, puedes pausar ambos si quieres
+        video.pause();
+        musica.pause();
+      }
+    });
 
-    </script>
+    // Cuando el video termina, la música sigue
+    video.addEventListener("ended", () => {
+      // No hacemos nada con la música, así que sigue sonando :)
+      console.log("El video terminó, pero la música continúa.");
+    });
+  </script>
     <style>
       body,
       h1 {
@@ -250,15 +263,12 @@
   </head>
   <body>
     <video class="w-100" controls autoplay loop>
-       <audio id="miaudio" autoplay loop >
-          <source src="images/TinkerBell.mp3" type="audio/mpeg" >
-    </audio>
       <source
         src="images/VIDEOHADA2.mp4"
         type="video/mp4"
       />
     </video>
-
+  <audio id="miMusica" src="images/TinkerBell.mp3" preload="auto"></audio>
      <!--About /Jane And John -->
 <div class="w3-container w3-padding-64 w3" style="background-color: #042c34;">
   <div class="w3-content" style="align-items: center;"> 
@@ -402,4 +412,5 @@ en este momento inolvidable.</p>
     });
   </script>
 </html>
+
 
