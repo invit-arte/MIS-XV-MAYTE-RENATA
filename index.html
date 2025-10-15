@@ -57,6 +57,16 @@
       crossorigin="anonymous"
     ></script>
 
+    <script>
+
+      document.addEventListener("click", function(){
+        const audio = document.getElementById("miaudio");
+        if (audio.paused) {
+          audio.play();
+        }
+      });
+
+    </script>
     <style>
       body,
       h1 {
@@ -239,9 +249,13 @@
     </style>
   </head>
   <body>
+     <audio id="miaudio" autoplay loop >
+          <source src="images/TinkerBell.mp3" type="audio/mpeg" >
+    </audio>
+
     <video class="w-100" controls autoplay loop>
       <source
-        src="images/VIDEOHADA.mp4"
+        src="images/VIDEOHADA2.mp4"
         type="video/mp4"
       />
     </video>
@@ -388,5 +402,4 @@ en este momento inolvidable.</p>
       setInterval(updateCountdown, MILLISECONDS_OF_A_SECOND);
     });
   </script>
-
 </html>
